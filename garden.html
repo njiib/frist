@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#d91048">
+    <title>حديقة شبكة {{network-name}}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/fontello.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/mhtrf.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <script charset="UTF-8" src="js/sweetalert2.all.min.js"></script>
+    <style>
+        .garden-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            direction: rtl;
+            font-family: 'Tahoma', sans-serif;
+        }
+        .garden-title {
+            text-align: center;
+            color: #d91048;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        .garden-section {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .garden-section h3 {
+            color: #d91048;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .garden-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .rating {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+        }
+        .stars {
+            color: #FFD700;
+            cursor: pointer;
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body translate="no">
+    <div class="garden-container">
+        <h2 class="garden-title">🌿 حديقة شبكة {{network-name}}</h2>
+
+        <div class="garden-section">
+            <h3>معلومات عن الحديقة</h3>
+            <p>
+                تقع الحديقة في قلب المنطقة، وتُعد وجهة مثالية للعائلات والأطفال.
+                تتميز بمساحات خضراء واسعة، وألعاب أطفال آمنة، ومقاعد للجلوس والاسترخاء.
+                مفتوحة يوميًا من الساعة 6 صباحًا حتى 10 مساءً.
+            </p>
+        </div>
+
+        <div class="garden-section">
+            <h3>أقسام الحديقة</h3>
+            <h4>1. منطقة الأطفال</h4>
+            <img src="img/garden-kids.jpg" alt="منطقة الأطفال" class="garden-img">
+            <p>تحتوي على ألعاب مطاطية، زحاليق، وأرجوحة آمنة.</p>
+
+            <h4>2. الممرات الخضراء</h4>
+            <img src="img/garden-path.jpg" alt="الممرات الخضراء" class="garden-img">
+            <p>ممرات مظللة من الأشجار مثالية للمشي أو الركض.</p>
+
+            <h4>3. منطقة الجلوس</h4>
+            <img src="img/garden-seating.jpg" alt="منطقة الجلوس" class="garden-img">
+            <p>مقاعد موزعة حول الحديقة مع إطلالة على الزهور والنوافير.</p>
+        </div>
+
+        <div class="garden-section">
+            <h3>تقييم الزوار</h3>
+            <p style="text-align:center;">قيّم تجربتك في الحديقة:</p>
+            <div class="rating">
+                <span class="stars" onclick="rate(1)">★</span>
+                <span class="stars" onclick="rate(2)">★</span>
+                <span class="stars" onclick="rate(3)">★</span>
+                <span class="stars" onclick="rate(4)">★</span>
+                <span class="stars" onclick="rate(5)">★</span>
+            </div>
+            <p id="rating-result" style="text-align:center; margin-top:10px; color:#d91048;"></p>
+
+            <script>
+                function rate(stars) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'شكرًا لتقييمك!',
+                        text: 'لقد قيّمت الحديقة بـ ' + stars + ' نجوم.',
+                        confirmButtonText: 'موافق'
+                    });
+                    document.getElementById('rating-result').innerHTML = 'شكرًا! قيّمت الحديقة بـ ' + stars + ' نجوم.';
+                }
+            </script>
+        </div>
+
+        <!-- زر العودة -->
+        <button class="button login-submit back-btn" onclick="location.href='index.html';">
+            <span class="button-text">العودة للرئيسية</span>
+            <i class="button-icon fas icon-left-open"></i>
+        </button>
+    </div>
+</body>
+</html>
